@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #e85d04;
+    --cor-fundo: #212121;
+    --cor-texto: #ffc857;
+    --cor-card: #ffc857;
+    --cor-textoCard: #212121;
+    --sombra-padrao: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+}
+
+/* Container Grid (usado em lanches e bebidas) */
+.vitrine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.card-produto {
+    background-color: var(--cor-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.3s ease;
+    color: var(--cor-textoCard);
+}
+
+.card-produto:hover {
+    transform: translateY(-8px);
+}
+
+.imagem-produto {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.info-carrinho {
+    margin: 10px;
+}
+
+/* Tipografia */
+h1 {
+    margin: 10px;
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    max-width: 1200px;
+    margin: 40px auto 10px;
+    padding: 0 10px;
+}
+
+h3 {
+    margin: 18.72px 10px;
+    font-size: 20px;
+}
+
+p {
+    margin: 18.72px 10px;
+}
+
+.preco-destaque {
+    margin: 18.72px 10px;
+}
+
+/* Botão: lanches (laranja) */
+.btn-adicionar {
+    margin: 18.72px 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    cursor: pointer;
+}
+
+.btn-adicionar-beb {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.imagem-produto-beb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+#sidebar-carrinho {
+    position: fixed; /* Fixa na tela, não rola com o scroll */
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100vh; /* 100% da altura da tela */
+    background-color: var(--cor-card);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 1000; /* Garante que fique por cima de TUDO */
+    
+    /* Organização interna com Flexbox */
+    display: flex;
+    flex-direction: column;
+    
+    /* Animação suave para entrar e sair */
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Estado Padrão: Escondido fora da tela (100% para a direita) */
+.carrinho-oculto {
+    transform: translateX(100%);
+}
+
+/* Estado Ativo: Visível na tela (volta para a posição 0) */
+.carrinho-aberto {
+    transform: translateX(0);
+}
+
+/* Interiores do Carrinho */
+.carrinho-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo);
+}
+
+.btn-fechar {
+    background: transparent;
+    color: var(--cor-fundo);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrinho-itens {
+    padding: 20px;
+    list-style: none; /* Remove as bolinhas da lista */
+    flex-grow: 1; /* Faz a lista crescer e empurrar o rodapé para baixo */
+    overflow-y: auto; /* Permite scroll apenas nos itens se houver muitos */
+}
+
+.carrinho-itens li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    color: var(--cor-fundo);
+    font-weight: 600;
+}
+
+.carrinho-rodape {
+    padding: 20px;
+    border-top: 2px solid #eee;
+    color: var(--cor-fundo);
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 15px;
+    background-color: #212121;
+    color: var(--cor-primaria);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-sair {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--cor-fundo);
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+.btn-sair:hover { 
+    background-color: var(--cor-texto); 
+}
+
+/* Aplica estas regras APENAS se a tela for menor que 768px (Smartphones) */
+@media (max-width: 768px) {
+    
+    /* Empilha o título, o carrinho e o botão de sair */
+    .cabecalho {
+        flex-direction: column; 
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Muda a vitrine de 3 colunas para apenas 1 coluna */
+    .vitrine-grid {
+        grid-template-columns: 1fr; 
+        padding: 0 15px; 
+    }
+
+    /* No celular, o carrinho lateral ocupa 100% da tela para não ficar espremido */
+    #sidebar-carrinho {
+        width: 100%; 
+    }
+}

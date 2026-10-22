@@ -1,0 +1,101 @@
+/* Reset de formatação nativa */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Centralização com Flexbox */
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #181818;
+}
+
+/* Estilização do Cartão */
+.card-login {
+    background-color: #212121;
+    padding: 40px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.card-login h1 {
+    color: #ffc857;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-login p {
+    text-align: center;
+    color: #ffc857;
+    margin-bottom: 25px;
+}
+
+/* Organização dos Inputs */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffc857;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #181818;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffc857;
+    color: #212121 ;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e85d04;
+    color: #212121;
+}
+
+.login-link {
+    color: #e85d04;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #e85d04;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    color: #e85d04;
+    text-decoration: underline;
+}
+
+#mensagensErro .erro {
+    color: #e85d04;
+    font-size: 14px;
+    margin-top: 12px;
+}
